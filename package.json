@@ -1,0 +1,12 @@
+{
+  "name": "rgb_time",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -w --target es5 index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
