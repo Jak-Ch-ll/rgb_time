@@ -5,6 +5,10 @@ enum timeunit {
 }
 
 class rgbTime {
+  constructor(public root: HTMLElement){
+    this.backgroundChange();
+  }
+
   timeToColor(timeNumber: number): number {
     const value = Math.floor(Date.now() / timeNumber) % 510;
     return value > 255 ? 255 - (value - 255) : value;
@@ -20,16 +24,23 @@ class rgbTime {
     return this.timeToColor(timeunit.sec);
   }
 
+  backgroundChange(): void {
+    setInterval(() => {
+      this.root.style.backgroundColor = `rgb(${this.red}, ${this.green}, ${this.blue})`
+    }, 500)
+  }
+
 }
 
-const rgbTest = new rgbTime();
-
-const body = document.querySelector("body");
-
-body?.getAttribute("background");
-
-setInterval(() => {
+const main = () => {
+  const body = document.querySelector("body");
   if (body) {
-    body.style.backgroundColor = `rgb(${rgbTest.red}, ${rgbTest.green}, ${rgbTest.blue})`
+    new rgbTime(body);
   }
-}, 500)
+}
+
+main();
+
+
+
+
