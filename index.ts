@@ -6,7 +6,8 @@ enum timeunit {
 
 class rgbTime {
   timeToColor(timeNumber: number): number {
-    return Math.floor(Date.now() / timeNumber) % 256;
+    const value = Math.floor(Date.now() / timeNumber) % 510;
+    return value > 255 ? 255 - (value - 255) : value;
   }
 
   get red(): number {
