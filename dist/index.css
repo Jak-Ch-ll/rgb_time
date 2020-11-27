@@ -4,6 +4,13 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: "Digital-7";
+  src: url("./Fonts/digital-7_mono.ttf");
+  /* Credit for the font:  Sizenko Alexander*/
+  /* For personal use: https://www.dafont.com/digital-7.font */
+}
+
 #root {
   height: 100%;
 
@@ -15,7 +22,10 @@ body {
 #timeContainer {
   background: rgba(0, 0, 0, 0.3);
 
-  color: white;
-
+  border-radius: 0.5em;
   padding: 1.5em;
+
+  color: white;
+  font-family: "Digital-7";
+  font-size: 4rem;
 }
