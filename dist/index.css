@@ -1,0 +1,21 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#timeContainer {
+  background: rgba(0, 0, 0, 0.3);
+
+  color: white;
+
+  padding: 1.5em;
+}

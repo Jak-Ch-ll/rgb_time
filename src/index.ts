@@ -4,9 +4,11 @@ enum timeunit {
   sec = 1000
 }
 
-class rgbTime {
+class RgbTime {
   constructor(public root: HTMLElement){
     this.backgroundChange();
+    this.builder();
+    this.interval();
   }
 
   timeToColor(timeNumber: number): number {
@@ -25,22 +27,42 @@ class rgbTime {
   }
 
   backgroundChange(): void {
-    setInterval(() => {
-      this.root.style.backgroundColor = `rgb(${this.red}, ${this.green}, ${this.blue})`
-    }, 500)
+    this.root.style.backgroundColor = `rgb(${this.red}, ${this.green}, ${this.blue})`;
   }
 
+  builder(): void {
+    this.root.innerHTML = `
+      <div id="timeContainer">
+        <div id="timeDisplay">
+          RGB(${this.red}, ${this.green}, ${this.blue})
+        <div>
+      </div>
+      `
+  }
+
+  updateDisplay(): void {
+    const timeDisplay = document.getElementById("timeDisplay");
+    if (timeDisplay) {
+      timeDisplay.innerHTML = `RGB(${this.red}, ${this.green}, ${this.blue})`;
+    }
+  }
+
+  interval(): void {
+    setInterval(() => {
+      this.backgroundChange();
+      this.updateDisplay();
+    }, 1000);
+  }
 }
 
 const main = () => {
-  const body = document.querySelector("body");
-  if (body) {
-    new rgbTime(body);
+  const root = document.getElementById("root");
+  if (root) {
+    new RgbTime(root);
   }
 }
 
 main();
 
 
-
-
+// Funfact: While coding I witnessed RGB(0,0,0) on the 27.11.2020 at 19:00 GMT+1
