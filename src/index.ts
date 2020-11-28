@@ -34,21 +34,21 @@ class RgbTime {
 
   builder(): void {
     this.root.innerHTML = `
-      <div id="timeContainer">
-        <div id="timeDisplay">#
-        <div>
+      <div id="clockContainer">
+        rgb(<span id="clockFace"></span>)
       </div>
       `
     this.updateDisplay();
   }
 
   updateDisplay(): void {
-    const timeDisplay = document.getElementById("timeDisplay");
-    if (timeDisplay) {
-      timeDisplay.innerHTML = `RGB(${this.red},${this.green},${this.blue})`;
+    const clockFace = document.getElementById("clockFace");
+    if (clockFace) {
+      clockFace.innerHTML = `${this.red},${this.green},${this.blue}`;
     }
   }
 
+  // Continues Update Function
   interval(): void {
     setInterval(() => {
       this.backgroundChange();

@@ -19,13 +19,27 @@ body {
   align-items: center;
 }
 
-#timeContainer {
+#clockContainer {
   background: rgba(0, 0, 0, 0.3);
 
   border-radius: 0.5em;
   padding: 1.5em;
 
   color: white;
+  font-family: "Consolas";
+  font-size: 5rem;
+}
+
+#clockFace {
   font-family: "Digital-7";
   font-size: 4rem;
+  position: relative;
+}
+
+#clockFace::before {
+  content: "888,888,888";
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  opacity: 0.05;
 }
