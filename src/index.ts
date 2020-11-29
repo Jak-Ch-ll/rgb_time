@@ -6,10 +6,11 @@ enum timeunit {
 
 class RgbTime {
   constructor(public root: HTMLElement){
-    //calling backgroundChange() once, so the inital-background, doesnt have to wait for the interval
+    //calling backgroundChange() once, so the inital-background doesnt have to wait for the interval
     this.backgroundChange();
     this.builder();
     this.interval();
+    this.initiateHexButton();
   }
 
   timeToColorStr(timeNumber: number): String {
@@ -28,19 +29,22 @@ class RgbTime {
     return this.timeToColorStr(timeunit.sec);
   }
 
+  // changes bg to the rgb-values
   backgroundChange(): void {
     this.root.style.backgroundColor = `rgb(${this.red}, ${this.green}, ${this.blue})`;
   }
 
+  // creates the outer part of the "clock"
   builder(): void {
     this.root.innerHTML = `
       <div id="clockContainer">
-        rgb(<span id="clockFace"></span>)
+        <div>rgb(<span id="clockFace"></span>)</div>
       </div>
       `
     this.updateDisplay();
   }
 
+  // Updates clockface (the visible RGB)
   updateDisplay(): void {
     const clockFace = document.getElementById("clockFace");
     if (clockFace) {
@@ -55,12 +59,33 @@ class RgbTime {
       this.updateDisplay();
     }, 1000);
   }
+
+  // creates button and click event
+  initiateHexButton(): void {
+    const clockContainer = document.getElementById("clockContainer");
+    if (clockContainer) {
+      const Button = document.createElement("button");
+      Button.innerHTML = "Copy Hex"
+
+      const hexRed = (+this.red).toString(16);
+      const hexGreen = (+this.green).toString(16);
+      const hexBlue = (+this.blue).toString(16);
+
+      Button.addEventListener("click", () => {
+        navigator.clipboard.writeText("#" + hexRed + hexGreen + hexBlue)
+      })
+      clockContainer.appendChild(Button);
+    }
+  }
 }
 
 const main = () => {
   const root = document.getElementById("root");
   if (root) {
     new RgbTime(root);
+  }
+  else {
+    throw new Error("No element with id 'root' found.")
   }
 }
 
