@@ -11,13 +11,17 @@ body {
   /* For personal use: https://www.dafont.com/digital-7.font */
 }
 
-#root {
+#background {
   height: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* ############
+   Clock
+   ############ */
 
 #clockContainer {
   background: rgba(0, 0, 0, 0.3);
@@ -38,19 +42,23 @@ body {
 }
 
 /* Concept inspired by https://www.cssscript.com/minimal-digital-clock-javascript-css/ */
-#clockFace {
+#clockface {
   font-family: "Digital-7";
   font-size: 4rem;
   position: relative;
 }
 
-#clockFace::before {
+#clockface::before {
   content: "888,888,888";
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
   opacity: 0.05;
 }
+
+/* ############
+   Button
+   ############ */
 
 #clockContainer button {
   display: block;
