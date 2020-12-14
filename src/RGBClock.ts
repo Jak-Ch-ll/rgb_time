@@ -2,7 +2,7 @@ class RGBClock {
   constructor(
     public clockface: HTMLElement,
     public background: HTMLElement,
-    public generator: RGBGenerator
+    public generator: RGBTimeGenerator
   ) {
     //calling backgroundChange() once, so the inital-background doesnt have to wait for the interval
     this.backgroundChange();

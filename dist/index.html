@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>RGB-Timer</title>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+    />
     <link rel="stylesheet" href="index.css" />
-    <title>RGB-Timer</title>
   </head>
   <body>
     <div id="background">
       <div id="clockContainer">
-        <div>rgb(<span id="clockface"></span>)</div>
-        <button id="hexbutton">Copy Hex</button>
+        <div id="clocktext">rgb( <span id="clockface"></span> )</div>
+        <!-- <button id="hexbutton">Copy Hex</button> -->
+      </div>
+      <div class="buttonContainer">
+        <button><i class="fas fa-eye"></i></button>
+        <button id="hexbutton">Copy</button>
+        <button>?</button>
       </div>
     </div>
 
-    <script src="RGBTimeGenerator.js" async></script>
-    <script src="HexButton.js" async></script>
-    <script src="RGBClock.js" async></script>
-    <script src="index.js" async></script>
+    <script type="text/javascript" src="RGBTimeGenerator.js"></script>
+    <script type="text/javascript" src="HexButton.js"></script>
+    <script type="text/javascript" src="RGBClock.js"></script>
+    <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
