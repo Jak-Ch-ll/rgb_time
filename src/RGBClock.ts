@@ -6,12 +6,12 @@ class RGBClock {
   ) {
     //calling backgroundChange() once, so the inital-background doesnt have to wait for the interval
     this.backgroundChange();
-    this.builder();
+    this.updateDisplay();
     this.interval();
     // this.initiateHexButton();
   }
 
-  toPaddedString(color: number) {
+  private toPaddedString(color: number) {
     return color.toString().padStart(3, "0");
   }
 
@@ -26,30 +26,25 @@ class RGBClock {
   }
 
   // changes bg to the rgb-values
-  backgroundChange(): void {
+  private backgroundChange(): void {
     this.background.style.backgroundColor = `rgb(${this.red}, ${this.green}, ${this.blue})`;
   }
 
-  // creates the outer part of the "clock"
-  builder(): void {
-    this.clockface.innerHTML = `
-      <div id="clockContainer">
-        <div>rgb(<span id="clockFace"></span>)</div>
-      </div>
-      `;
-    this.updateDisplay();
-  }
-
   // Updates clockface (the visible RGB)
-  updateDisplay(): void {
+  private updateDisplay(): void {
     this.clockface.innerHTML = `${this.red},${this.green},${this.blue}`;
   }
 
   // Continues Update Function
-  interval(): void {
-    setInterval(() => {
+  private interval(): void {
+    const updateAll = () => {
       this.backgroundChange();
       this.updateDisplay();
+    };
+
+    updateAll();
+    setInterval(() => {
+      updateAll();
     }, 1000);
   }
 }
