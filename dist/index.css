@@ -64,7 +64,7 @@ body {
 }
 
 /* ############
-   Button
+   Buttons
    ############ */
 
 .buttonContainer {
@@ -84,9 +84,10 @@ body {
 
 .buttonContainer button {
   display: block;
+  box-sizing: border-box;
   border-radius: 50%;
-  height: 4em;
-  width: 4em;
+  height: 2em;
+  width: 2em;
 }
 
 button {
@@ -97,15 +98,17 @@ button {
   /* border-radius: 0.3em; */
   /* padding: 0.3em 0.5em; */
 
-  /* font-size: 1.5rem; */
+  font-size: 1.5rem;
   color: white;
 
   position: relative;
 }
 
 button::before {
-  content: "Copy Hex";
+  box-sizing: border-box;
+  content: url(./Icons/eye-solid.svg);
   position: absolute;
+
   top: -1px;
   left: -1px;
 
@@ -119,6 +122,8 @@ button::before {
   color: black;
 
   white-space: nowrap;
+  display: flex;
+  align-items: center;
 
   transition: opacity ease-in 150ms;
   opacity: 0;
