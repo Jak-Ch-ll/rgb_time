@@ -3,14 +3,18 @@ class HexButton {
     this.initiateHexButton();
   }
 
+  private toHex = (num: number): string => {
+    return num.toString(16).padStart(2, "0");
+  };
+
   get red(): string {
-    return this.generator.red.toString(16);
+    return this.toHex(this.generator.red);
   }
   get green(): string {
-    return this.generator.green.toString(16);
+    return this.toHex(this.generator.green);
   }
   get blue(): string {
-    return this.generator.blue.toString(16);
+    return this.toHex(this.generator.blue);
   }
 
   initiateHexButton(): void {
