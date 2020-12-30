@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>RGB-Timer</title>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+    />
     <link rel="stylesheet" href="index.css" />
-    <title>RGB-Timer</title>
   </head>
   <body>
     <div id="background">
       <div id="clockContainer">
-        <div>rgb(<span id="clockface"></span>)</div>
-        <button id="hexbutton">Copy Hex</button>
+        <div id="clocktext">RGB-Time</div>
+        <div id="clockface"></div>
+      </div>
+      <div class="buttonContainer">
+        <button>
+          <img src="Icons/eye-solid.svg" alt="Eye Icon: Click to hide UI" />
+        </button>
+        <button>
+          <img
+            src="Icons/copy-solid.svg"
+            alt="Copy Icon: Click to copy hex code"
+          />
+        </button>
+        <button>
+          <img
+            src="Icons/question-solid.svg"
+            alt="Question Mark Icon: Click to learn more"
+          />
+        </button>
       </div>
     </div>
 

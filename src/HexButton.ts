@@ -1,5 +1,5 @@
 class HexButton {
-  constructor(public button: HTMLElement, public generator: RGBGenerator) {
+  constructor(public button: HTMLElement, public generator: RGBTimeGenerator) {
     this.initiateHexButton();
   }
 

@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 @font-face {
@@ -14,9 +15,16 @@ body {
 #background {
   height: 100%;
 
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: 100fr 1fr;
   align-items: center;
+}
+
+@media (orientation: landscape) {
+  #background {
+    grid-template-columns: 100fr 1fr;
+    grid-template-rows: 1fr;
+  }
 }
 
 /* ############
@@ -24,28 +32,30 @@ body {
    ############ */
 
 #clockContainer {
-  background: rgba(0, 0, 0, 0.3);
+  justify-self: center;
 
-  border-radius: 0.3em;
-
-  width: 9em;
-  height: 4.5em;
+  background: rgba(25, 25, 25, 0.8);
+  border-radius: 0.5em;
+  padding: 0.5em 1.25em;
+  box-shadow: 0 0 0 0.5em rgba(0, 0, 0, 0.3);
 
   color: white;
   font-family: "Consolas";
-  font-size: 5rem;
+  font-size: 2rem;
+  font-size: min(10vmin, 4rem);
 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
 }
 
 /* Concept inspired by https://www.cssscript.com/minimal-digital-clock-javascript-css/ */
 #clockface {
   font-family: "Digital-7";
-  font-size: 4rem;
+  font-size: 1.2em;
   position: relative;
+
+  margin-top: 0.2em;
 }
 
 #clockface::before {
@@ -57,42 +67,77 @@ body {
 }
 
 /* ############
-   Button
+   Buttons
    ############ */
 
-#clockContainer button {
-  display: block;
+.buttonContainer {
+  justify-self: stretch;
+  align-self: stretch;
 
-  background: none;
-  border: 1px white solid;
-  border-radius: 0.3em;
-  padding: 0.3em 0.5em;
+  padding: 1em;
 
-  font-size: 2rem;
-  color: white;
-
-  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
-#clockContainer button::before {
-  content: "Copy Hex";
+@media (orientation: landscape) {
+  .buttonContainer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+}
+
+button {
+  background: rgba(25, 25, 25, 0.3);
+  border-radius: 50%;
+  border: none;
+
+  padding: 0.75em;
+  display: flex;
+  align-items: center;
+
+  font-size: 1.4rem;
+  font-size: min(6vmin, 1.4rem);
+
+  position: relative;
+  z-index: 1;
+}
+
+button:focus {
+  box-shadow: 0 0 0 0.2em white;
+  outline: none;
+}
+
+button::after {
   position: absolute;
-  top: -1px;
-  left: -1px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(25, 25, 25, 0.8);
+  content: "";
 
   border-radius: inherit;
-  background: white;
-  border: inherit;
-  padding: inherit;
+  z-index: -1;
 
-  color: black;
+  transform: scale(0);
+  transition: 150ms ease-in;
+}
 
-  white-space: nowrap;
+button:hover::after,
+button:focus::after {
+  transform: scale(1);
+}
 
-  transition: opacity ease-in 150ms;
+button:active {
+  outline: none;
+}
+
+button:active::after {
   opacity: 0;
 }
 
-#clockContainer button:hover::before {
-  opacity: 1;
+button img {
+  width: 1.3em;
+  height: 1.3em;
 }
