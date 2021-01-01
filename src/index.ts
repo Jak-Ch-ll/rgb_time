@@ -1,3 +1,8 @@
+import { HexButton } from "./HexButton";
+import { RGBClock } from "./RGBClock";
+import { RGBTimeGenerator } from "./RGBTimeGenerator";
+import "./main.scss";
+
 const main = (
   clockfaceID: string,
   backgroundID: string,

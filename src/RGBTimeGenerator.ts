@@ -10,7 +10,7 @@ interface RGBGenerator {
   blue: number;
 }
 
-class RGBTimeGenerator implements RGBGenerator {
+export class RGBTimeGenerator implements RGBGenerator {
   calcColor(timeNumber: number): number {
     let value = Math.floor(Date.now() / timeNumber) % 510;
     value = value > 255 ? 255 - (value - 255) : value;

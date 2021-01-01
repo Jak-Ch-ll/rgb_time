@@ -1,4 +1,6 @@
-class RGBClock {
+import { RGBTimeGenerator } from "./RGBTimeGenerator";
+
+export class RGBClock {
   constructor(
     public clockface: HTMLElement,
     public background: HTMLElement,

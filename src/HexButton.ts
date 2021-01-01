@@ -1,4 +1,6 @@
-class HexButton {
+import { RGBTimeGenerator } from "./RGBTimeGenerator";
+
+export class HexButton {
   constructor(public button: HTMLElement, public generator: RGBTimeGenerator) {
     this.initiateHexButton();
   }
