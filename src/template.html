@@ -8,16 +8,21 @@
   </head>
   <body>
     <div id="background">
-      <div id="clockContainer">
-        <div id="clocktext">RGB-Time</div>
-        <div id="clockface"></div>
+      <div class="clock hideable">
+        <div class="clock__title">RGB-Time</div>
+        <div class="clock__time" id="clocktime"></div>
       </div>
       <div class="buttonContainer">
-        <!-- <button>
-          <img src="icons/eye-solid.svg" alt="Eye Icon: Click to hide UI" />
-        </button> -->
-        <button id="hexbutton">
+        <!-- <button class="button" id="hideUI">
           <img
+            class="button__icon"
+            src="icons/eye-solid.svg"
+            alt="Eye Icon: Click to hide UI"
+          />
+        </button> -->
+        <button class="button hideable" id="hexbutton">
+          <img
+            class="button__icon"
             src="icons/copy-solid.svg"
             alt="Copy Icon: Click to copy hex code"
           />

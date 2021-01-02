@@ -1,3 +1,6 @@
+@use './button.scss';
+@use "./clock.scss";
+
 html,
 body {
   height: 100%;
@@ -27,118 +30,10 @@ body {
   }
 }
 
-/* ############
-   Clock
-   ############ */
-
-#clockContainer {
-  justify-self: center;
-
-  background: rgba(25, 25, 25, 0.8);
-  border-radius: 0.2em;
-  padding: 0.5em 1.25em;
-  box-shadow: 0 0 0 0.5em rgba(0, 0, 0, 0.3);
-
-  color: white;
-  font-family: "Consolas";
-  font-size: 2rem;
-  font-size: min(10vmin, 4rem);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.hideable {
+  transition: opacity ease-in 200ms;
 }
 
-/* Concept inspired by https://www.cssscript.com/minimal-digital-clock-javascript-css/ */
-#clockface {
-  font-family: "Digital-7";
-  font-size: 1.2em;
-  position: relative;
-
-  margin-top: 0.2em;
-}
-
-#clockface::before {
-  content: "888,888,888";
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  opacity: 0.05;
-}
-
-/* ############
-   Buttons
-   ############ */
-
-.buttonContainer {
-  justify-self: stretch;
-  align-self: stretch;
-
-  padding: 1em;
-
-  display: flex;
-  // justify-content: space-between;
-  justify-content: center;
-}
-
-@media (orientation: landscape) {
-  .buttonContainer {
-    flex-direction: column-reverse;
-    align-items: stretch;
-  }
-}
-
-button {
-  background: rgba(25, 25, 25, 0.3);
-  border-radius: 50%;
-  border: none;
-
-  padding: 0.75em;
-  display: flex;
-  align-items: center;
-
-  font-size: 1.4rem;
-  font-size: min(6vmin, 1.4rem);
-
-  position: relative;
-  z-index: 1;
-}
-
-button::after {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(25, 25, 25, 0.8);
-  content: "";
-  box-shadow: 0 0 0 0.15em white;
-
-  border-radius: inherit;
-  z-index: -1;
-
-  transform: scale(0);
-  transition: 200ms ease-in;
-}
-
-button:focus {
-  outline: none;
-}
-
-button:hover::after,
-button:focus::after {
-  transform: scale(1);
-}
-
-button:active {
-  outline: none;
-}
-
-button:active::after {
+.hidden {
   opacity: 0;
-}
-
-button img {
-  width: 1.3em;
-  height: 1.3em;
 }

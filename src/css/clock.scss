@@ -1,0 +1,40 @@
+@use "variables";
+
+/* ############
+   Clock
+   ############ */
+
+.clock {
+  justify-self: center;
+
+  background: variables.$clr-bg-strong;
+  border-radius: 0.2em;
+  padding: 0.5em 1.25em;
+  box-shadow: 0 0 0 0.5em variables.$clr-bg-light;
+
+  color: white;
+  font-family: "Consolas";
+  font-size: 2rem;
+  font-size: min(10vmin, 4rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Concept inspired by https://www.cssscript.com/minimal-digital-clock-javascript-css/ */
+  &__time {
+    font-family: "Digital-7";
+    font-size: 1.2em;
+    position: relative;
+
+    margin-top: 0.2em;
+
+    &::before {
+      content: "888,888,888";
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      opacity: 0.05;
+    }
+  }
+}
