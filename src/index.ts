@@ -1,7 +1,7 @@
 import { HexButton } from "./HexButton";
 import { RGBClock } from "./RGBClock";
 import { RGBTimeGenerator } from "./RGBTimeGenerator";
-import "./main.scss";
+import "./css/main.scss";
 
 const main = (
   clockfaceID: string,
