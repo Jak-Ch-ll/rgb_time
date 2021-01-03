@@ -13,14 +13,19 @@
         <div class="clock__time" id="clocktime"></div>
       </div>
       <div class="buttonContainer">
-        <!-- <button class="button" id="hideUI">
+        <button class="button" id="hideButton">
           <img
-            class="button__icon"
+            class="button__icon hideable"
             src="icons/eye-solid.svg"
             alt="Eye Icon: Click to hide UI"
           />
-        </button> -->
-        <button class="button hideable" id="hexbutton">
+          <img
+            class="button__icon button__icon--switch hideable hidden"
+            src="icons/eye-slash-solid.svg"
+            alt="Eye Icon: Click to hide UI"
+          />
+        </button>
+        <button class="button hideable" id="hexButton">
           <img
             class="button__icon"
             src="icons/copy-solid.svg"
