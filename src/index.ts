@@ -5,39 +5,36 @@ import { RGBTimeGenerator } from "./RGBTimeGenerator";
 import "./css/main.scss";
 import { HideButton } from "./HideButton";
 
-const main = (
-  clockfaceID: string,
-  backgroundID: string,
-  hexButtonID: string,
-  hideButtonID: string
-): void => {
-  const clockface = document.getElementById(clockfaceID);
-  const background = document.getElementById(backgroundID);
-  const hexButton = document.getElementById(hexButtonID);
-  const hideButton = document.getElementById(hideButtonID);
-  const hideables = document.querySelectorAll(".hideable");
+const main = (): void => {
+  const getEl = (id: string): HTMLElement => {
+    const el = document.getElementById(id);
+
+    if (!el) throw new Error(`No element with id '${id}' found!`);
+    return el;
+  };
+
+  const getEls = (className: string): NodeListOf<Element> => {
+    const els = document.querySelectorAll(`.${className}`);
+
+    if (els.length === 0)
+      throw new Error(`No element with class '${className} found!`);
+    return els;
+  };
 
   const generator = new RGBTimeGenerator();
 
-  if (clockface && background) {
-    new RGBClock(clockface, background, generator);
-  } else {
-    throw new Error(`No element with id ${clockface} found!`);
-  }
+  const clockface = getEl("clocktime");
+  const background = getEl("background");
+  new RGBClock(clockface, background, generator);
 
-  if (hexButton) {
-    new HexButton(hexButton, generator);
-  } else {
-    throw new Error("Button with id testbutton not found");
-  }
+  const hexButton = getEl("hexButton");
+  new HexButton(hexButton, generator);
 
-  if (hideButton && hideables.length > 0) {
-    new HideButton(hideButton, hideables);
-  } else {
-    throw new Error("Either no hidebutton or no hideables found");
-  }
+  const hideButton = getEl("hideButton");
+  const hideables = getEls("hideable");
+  new HideButton(hideButton, hideables);
 };
 
-main("clocktime", "background", "hexButton", "hideButton");
+main();
 
 // Funfact: While coding I witnessed RGB(0,0,0) on the 27.11.2020 at 19:00 GMT+1
