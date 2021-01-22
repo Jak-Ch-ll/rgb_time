@@ -1,11 +1,13 @@
 @use './button.scss';
 @use "./clock.scss";
+@use './info.scss';
 
 html,
 body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
+
+  font-family: "Consolas";
 }
 
 @font-face {

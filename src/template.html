@@ -7,7 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div id="background">
+    <div class="info" id="info">
+      <div class="info__box">
+        <h2 class="info__title">RGB-Time</h2>
+        <p class="info__text">
+          Have you ever wondered what time it is in RGB? Me neither, actually.
+        </p>
+        <h3>Why did I create this?</h3>
+        <p class="info__text">
+          I'm currently learning the ins and outs of web development and I
+          needed a project to start getting some practical experience. I didn't
+          really have an idea for something useful and then I watched the video
+          <a
+            class="info__link"
+            href="https://www.youtube.com/watch?v=c0bsKc4tiuY"
+            >Why you should make useless thing | Simone Giertz</a
+          >
+          and was instantly inspired.
+        </p>
+        <h3>So what exactly does it do?</h3>
+        <p class="info__text">
+          This clock does show the official RGB-Time (no, I made it up) at any
+          given moment combined with the correct color in the background.
+          Wherever you are in the world, the clock should show the same time for
+          everyone and the same time, but chances are, you will not see the
+          exact same color a second time. You can press the middle button to
+          copy the current color as hex code for you design program of choice.
+        </p>
+        <h3>How does it work?</h3>
+        <p class="info__text">
+          It uses your system time, to calculate the current RGB-Time, The
+          red-channel is switching every hour, the green-channel every minute
+          and the blue one every second.
+        </p>
+        <h3>Is this at all useful?</h3>
+        <p class="info__text">
+          That wasn't really the point anyway. Still, you could argue, that
+          designers could use the site for inspiration. Sometimes you just need
+          a color and maybe RGB-Time has the right one for you. ;)
+        </p>
+        <a class="info__close" href="#"></a>
+      </div>
+    </div>
+    <main class="main" id="background">
       <div class="clock hideable">
         <div class="clock__title">RGB-Time</div>
         <div class="clock__time" id="clocktime"></div>
@@ -32,13 +74,14 @@
             alt="Copy Icon: Click to copy hex code"
           />
         </button>
-        <!-- <button>
+        <a class="button hideable" href="#info">
           <img
+            class="button__icon"
             src="icons/question-solid.svg"
             alt="Question Mark Icon: Click to learn more"
           />
-        </button> -->
+        </a>
       </div>
-    </div>
+    </main>
   </body>
 </html>
